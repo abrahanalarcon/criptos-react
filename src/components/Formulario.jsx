@@ -3,6 +3,8 @@ import styled from "@emotion/styled"
 import Error from './Error'
 import useSelectMonedas from "../hooks/useSelectMonedas"
 import { monedas } from '../data/monedas.js'
+import PropTypes from 'prop-types';
+
 
 
 const InputSubmit = styled.input`
@@ -33,7 +35,7 @@ const Formulario = ({setMonedas}) => {
 
   useEffect(() => {
     const consultarAPI = async () => {
-        const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD"
+        const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"
         const respuesta = await fetch(url)
         const resultado = await respuesta.json()
 
@@ -90,5 +92,10 @@ const handleSubmit = e => {
     
   )
 }
+
+
+Formulario.propTypes = {
+  setMonedas: PropTypes.func.isRequired,
+};
 
 export default Formulario
