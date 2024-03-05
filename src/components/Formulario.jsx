@@ -33,7 +33,7 @@ const Formulario = ({setMonedas}) => {
   const [ moneda, SelectMonedas ] = useSelectMonedas('Elige tu moneda',monedas);
   const [ criptomoneda, SelectCriptomoneda ] = useSelectMonedas('Elige tu Criptomoneda', criptos)
 
-  useEffect(() => {
+ useEffect(() => {
     const consultarAPI = async () => {
         const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"
         const respuesta = await fetch(url)
@@ -51,7 +51,7 @@ const Formulario = ({setMonedas}) => {
 
     }
     consultarAPI();
-}, [])
+ }, [])
 
 
 const handleSubmit = e => {
